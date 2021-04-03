@@ -185,6 +185,18 @@ class VideoService {
 				'#^([\d\w-]+/[\d\w-]+)$#is'
 			]
 		],
+		'kakaotv' => [
+			'embed'			=> '<iframe title="%4$s" width="%2$d" height="%3$d" src="//tv.kakao.com/embed/player/cliplink/%1$s" frameborder="0" allowfullscreen=""></iframe>',
+			'default_width'	=> 640,
+			'default_ratio'	=> 1.59609120521173, // (490 / 307)
+			'https_enabled'	=> true,
+			'url_regex'		=> [
+				'#tv\.kakao\.com/embed/player/cliplink/((?:[a-zA-Z0-9]{2})?[\d]+)#is'
+			],
+			'id_regex'		=> [
+				'#^((?:[a-zA-Z]{2})?[\d]+)$#is'
+			]
+		],
 		'mediacccde' => [
 			'embed'	 => '<iframe title="%4$s" src="https://media.ccc.de/v/%1$s/oembed" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>',
 			'default_width' => 660,
@@ -231,6 +243,18 @@ class VideoService {
 			],
 			'id_regex'		=> [
 				'#^([\d\w\-\+]+)$#is'
+			]
+		],
+		'navertv' => [
+			'embed'			=> '<iframe title="%4$s" src="https://tv.naver.com/embed/%1$s" frameborder="no" scrolling="no" marginwidth="0" marginheight="0" width="%2$d" height="%3$d" allowfullscreen></iframe>',
+			'default_width'	=> 640,
+			'default_ratio'	=> 1.59609120521173, // (490 / 307)
+			'https_enabled'	=> false,
+			'url_regex'		=> [
+				'#tv\.naver\.com/embed/((?:[a-zA-Z0-9]{2})?[\d]+)#is'
+			],
+			'id_regex'		=> [
+				'#^((?:[a-zA-Z]{2})?[\d]+)$#is'
 			]
 		],
 		'nico' => [
@@ -361,18 +385,6 @@ class VideoService {
 			],
 			'id_regex'		=> [
 				'#^([\d\w-]+)$#is'
-			]
-		],
-		'tvpot' => [
-			'embed'			=> '<iframe title="%4$s" src="//videofarm.daum.net/controller/video/viewer/Video.html?vid=%1$s&play_loc=undefined&alert=true" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, // (16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#tvpot\.daum\.net/v/([\d\w-%]+)?#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w-%]+)$#is'
 			]
 		],
 		'twitch' => [
@@ -528,10 +540,12 @@ class VideoService {
 		'gfycat.com'				=> 'gfycat',
 		'content.jwplatform.com'	=> 'jwplayer',
 		'kickstarter.com'			=> 'kickstarter',
+		'tv.kakao.com'				=> 'kakaotv',
 		'media.ccc.de'				=> 'mideacccde',
 		'metacafe.com'				=> 'metacafe',
 		'microsoftstream.com'		=> 'microsoftstream',
 		'mixer.com'					=> 'mixer',
+		'tv.naver.com'				=> 'navertv',
 		'nicovideo.jp'				=> 'nico',
 		'rutube.ru'					=> 'rutube',
 		'smashcast.tv'				=> 'smashcast',
@@ -541,7 +555,6 @@ class VideoService {
 		'ted.com'					=> 'ted',
 		'tubitv.com'				=> 'tubitv',
 		'tudou.com'					=> 'todou',
-		'tvpot.daum.net'			=> 'tvpot',
 		'twitch.tv'					=> ['twitch', 'twitchclip', 'twitchvod'],
 		'89.160.51.62'				=> 'videomaten',
 		'vimeo.com'					=> 'vimeo',
